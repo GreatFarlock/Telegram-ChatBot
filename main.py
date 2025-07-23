@@ -1,9 +1,21 @@
 from telegram import Update, ForumTopic
-from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
-import os
+from telegram.ext import (
+    ApplicationBuilder,
+    ContextTypes,
+    CommandHandler,
+    MessageHandler,
+    filters,
+)
+import logging
 
-BOT_TOKEN = os.environ["BOT_TOKEN"]
-GROUP_ID = int(os.environ["GROUP_ID"])
+# 🔧 Настройка логирования (для отладки на Render и локально)
+logging.basicConfig(
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
+)
+
+# ✅ Прямо укажем токен и chat_id, если не используешь переменные окружения
+BOT_TOKEN = "7664167305:AAEyiGvr-cC9lEmKz2MQ12wu-QQEU5J75X8"
+GROUP_ID = -1002471723895
 
 user_threads = {}
 
